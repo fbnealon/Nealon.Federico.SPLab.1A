@@ -6,7 +6,7 @@
 int main()
 {
     srand (time(NULL));
-    int opcion, primera=1, aleatorio=0;
+    int opcion, primera=1, aleatorio=0, ordenado=0;
     LinkedList* bicicletas=ll_newLinkedList();
     do
     {
@@ -36,9 +36,17 @@ int main()
             break;
         case 5:
             informe_MostrarPosiciones(bicicletas);
+            ordenado=1;
             break;
         case 6:
-            informe_guardarPosiciones(informe_MostrarPosiciones(bicicletas), "bicicletasOrdenadas.csv");
+            if(ordenado)
+            {
+                informe_guardarPosiciones(bicicletas, "bicicletasOrdenadas.csv");
+            }
+            else
+            {
+                printf("Debe ordenar el listado de bicicletas primero\n\n");
+            }
             break;
         case 7:
             ll_deleteLinkedList(bicicletas);

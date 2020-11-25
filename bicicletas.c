@@ -318,3 +318,24 @@ int bicicleta_ordenarXTipoYTiempo(void* pElementA, void* pElementB)
     }
     return retorno;
 }
+
+int bicicleta_mapeo(void* pElement)
+{
+    int ok=0;
+    eBicicleta* unaBici=NULL;
+    int aleatorio;
+
+    if(pElement != NULL)
+    {
+        unaBici=(eBicicleta*) pElement;
+
+        if(unaBici != NULL)
+        {
+            aleatorio = rand()%(71)+50;
+            bicicleta_setTiempo(unaBici,aleatorio);
+            ok=1;
+        }
+    }
+
+    return ok;
+}

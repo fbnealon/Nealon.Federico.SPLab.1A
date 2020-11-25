@@ -38,17 +38,15 @@ int informe_imprimirBicicletas(LinkedList* pArrayBicicletas)
 int informe_asignarTiempos(LinkedList* pArrayBicicletas, int aleatorio)
 {
     int ok=0, size;
-    eBicicleta* unaBici;
+    //LinkedList* mappedList=NULL;
     if(pArrayBicicletas!=NULL)
     {
         size=ll_len(pArrayBicicletas);
         for(int i=0; i<size; i++)
         {
-            aleatorio=rand()%(71)+50;
-            unaBici=ll_get(pArrayBicicletas, i);
-            bicicleta_setTiempo(unaBici, aleatorio);
+            pArrayBicicletas= ll_map(pArrayBicicletas, bicicleta_mapeo);
         }
-        ok=1;
+        printf("Tiempos asignados exitosamente\n\n");
     }
     return ok;
 }
@@ -105,9 +103,12 @@ int informe_guardarBicicletasTexto(char* path, LinkedList* pArrayBicicletas)
     if(path!=NULL && pArrayBicicletas!=NULL)
     {
         pFile=fopen(path, "w");
-        fprintf(pFile, "ID_BIKE,NOMBRE,TIPO,TIEMPO\n");
+        if(pFile!=NULL)
+        {
+            fprintf(pFile, "ID_BIKE,NOMBRE,TIPO,TIEMPO\n");
+        }
         size=ll_len(pArrayBicicletas);
-        for(int i=0;i<size;i++)
+        for(int i=0; i<size; i++)
         {
             unaBici=(eBicicleta*)ll_get(pArrayBicicletas, i);
             if(unaBici!=NULL)
@@ -116,9 +117,9 @@ int informe_guardarBicicletasTexto(char* path, LinkedList* pArrayBicicletas)
             }
         }
         ok=1;
-        printf("Archivo de bicicletas generado\n\n");
-        free(unaBici);
         fclose(pFile);
+        free(unaBici);
+        printf("Archivo de bicicletas generado\n\n");
     }
     return ok;
 }
@@ -129,20 +130,16 @@ int informe_guardarBicicletasTexto(char* path, LinkedList* pArrayBicicletas)
  * \return LinkedList*
  *
  */
-LinkedList* informe_MostrarPosiciones(LinkedList* pArrayBicicletas)
+int informe_MostrarPosiciones(LinkedList* pArrayBicicletas)
 {
-    LinkedList* bicicletasOrdenadas=NULL;
+    int ok=0;
     if(pArrayBicicletas!=NULL)
     {
-        bicicletasOrdenadas=ll_newLinkedList();
-        if(bicicletasOrdenadas!=NULL)
-        {
-            bicicletasOrdenadas= ll_clone(pArrayBicicletas);
-            ll_sort(bicicletasOrdenadas, bicicleta_ordenarXTipoYTiempo, 1); //1=ASCENDENTE, 0=DESCENDENTE
-            informe_imprimirBicicletas(bicicletasOrdenadas);
-        }
+        ll_sort(pArrayBicicletas, bicicleta_ordenarXTipoYTiempo, 1); //1=ASCENDENTE, 0=DESCENDENTE
+        informe_imprimirBicicletas(pArrayBicicletas);
+        ok=1;
     }
-    return bicicletasOrdenadas;
+    return ok;
 }
 
 /** \brief Guarda un archivo con las bicicletas ordenadas por tipo y tiempo
@@ -152,12 +149,12 @@ LinkedList* informe_MostrarPosiciones(LinkedList* pArrayBicicletas)
  * \return int
  *
  */
-int informe_guardarPosiciones(LinkedList* bicicletasOrdenadas, char* path)
+int informe_guardarPosiciones(LinkedList* pArrayBicicletas, char* path)
 {
     int ok=0;
-    if(bicicletasOrdenadas!=NULL)
+    if(pArrayBicicletas!=NULL)
     {
-        informe_guardarBicicletasTexto(path, bicicletasOrdenadas);
+        informe_guardarBicicletasTexto(path, pArrayBicicletas);
         ok=1;
     }
     return ok;

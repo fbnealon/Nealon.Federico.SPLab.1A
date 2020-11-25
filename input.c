@@ -131,3 +131,4 @@ void getAlphaString(char message[], char errorMessage[], char str[])
     firstUpper(auxStr);
     strcpy(str, auxStr);
 }
+

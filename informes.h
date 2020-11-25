@@ -14,7 +14,7 @@ int informe_imprimirBicicletas(LinkedList* pArrayBicicletas);
 int informe_asignarTiempos(LinkedList* pArrayBicicletas, int aleatorio);
 int informe_filtrarBicicletasXTipo(LinkedList* pArrayBicicletas);
 int informe_guardarBicicletasTexto(char* path, LinkedList* pArrayBicicletas);
-LinkedList* informe_MostrarPosiciones(LinkedList* pArrayBicicletas);
+int informe_MostrarPosiciones(LinkedList* pArrayBicicletas);
 int informe_guardarPosiciones(LinkedList* bicicletasOrdenadas, char* path);
 
 

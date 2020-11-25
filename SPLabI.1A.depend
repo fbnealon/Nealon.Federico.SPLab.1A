@@ -105,10 +105,10 @@
 	"LinkedList.h"
 	"parser.h"
 
-1606313219 source:c:\users\federico\desktop\nealon.federico.splab.1a\bicicletas.c
+1606316170 source:c:\users\federico\desktop\nealon.federico.splab.1a\bicicletas.c
 	"bicicletas.h"
 
-1606310795 c:\users\federico\desktop\nealon.federico.splab.1a\bicicletas.h
+1606316154 c:\users\federico\desktop\nealon.federico.splab.1a\bicicletas.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -122,14 +122,14 @@
 	<string.h>
 	<ctype.h>
 
-1606309635 c:\users\federico\desktop\nealon.federico.splab.1a\linkedlist.h
+1606315076 c:\users\federico\desktop\nealon.federico.splab.1a\linkedlist.h
 
 1606307861 c:\users\federico\desktop\nealon.federico.splab.1a\parser.h
 
-1606312959 source:c:\users\federico\desktop\nealon.federico.splab.1a\informes.c
+1606316181 source:c:\users\federico\desktop\nealon.federico.splab.1a\informes.c
 	"informes.h"
 
-1606311898 c:\users\federico\desktop\nealon.federico.splab.1a\informes.h
+1606314101 c:\users\federico\desktop\nealon.federico.splab.1a\informes.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -139,16 +139,16 @@
 	"LinkedList.h"
 	"parser.h"
 
-1606262677 source:c:\users\federico\desktop\nealon.federico.splab.1a\input.c
+1606315076 source:c:\users\federico\desktop\nealon.federico.splab.1a\input.c
 	"input.h"
 
-1606313219 source:c:\users\federico\desktop\nealon.federico.splab.1a\linkedlist.c
+1606315076 source:c:\users\federico\desktop\nealon.federico.splab.1a\linkedlist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"LinkedList.h"
 
-1606312036 source:c:\users\federico\desktop\nealon.federico.splab.1a\main.c
+1606314002 source:c:\users\federico\desktop\nealon.federico.splab.1a\main.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"

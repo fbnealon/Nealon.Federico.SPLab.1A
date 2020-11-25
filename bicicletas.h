@@ -32,6 +32,7 @@ int bicicleta_setTiempo(eBicicleta* unaBici, int tiempo);
 int bicicleta_getTiempo(eBicicleta* unaBici, int* tiempo);
 int bicicleta_filtrarXTipo(void* pElement, char* tipo);
 int bicicleta_ordenarXTipoYTiempo(void* pElementA, void* pElementB);
+int bicicleta_mapeo(void* pElement);
 
 
 
