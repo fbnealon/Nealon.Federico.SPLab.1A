@@ -45,6 +45,7 @@ int informe_asignarTiempos(LinkedList* pArrayBicicletas, int aleatorio)
         for(int i=0; i<size; i++)
         {
             pArrayBicicletas= ll_map(pArrayBicicletas, bicicleta_mapeo);
+            informe_guardarBicicletasTexto("bicicletas.csv", pArrayBicicletas);
         }
         printf("Tiempos asignados exitosamente\n\n");
     }
