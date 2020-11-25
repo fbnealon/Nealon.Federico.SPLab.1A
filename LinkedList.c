@@ -525,6 +525,13 @@ LinkedList* ll_filter(LinkedList* this, int(*pFunc)(void*))
     return filteredList;
 }
 
+/** \brief Filtra los elementos de la lista por parametro str
+ *
+ * \param void*
+ * \param str[] char
+ * \return LinkedList* ll_filter_parametro(LinkedList* this,
+ *
+ */
 LinkedList* ll_filter_parametro(LinkedList* this, int(*pFunc)(void*, char str[]), char str[])
 {
     LinkedList* filteredParamList=NULL;

@@ -1,5 +1,11 @@
 #include "informes.h"
 
+/** \brief Imprime las bicicletas cargadas en la lista
+ *
+ * \param pArrayBicicletas LinkedList*
+ * \return int
+ *
+ */
 int informe_imprimirBicicletas(LinkedList* pArrayBicicletas)
 {
     int ok=0;
@@ -22,6 +28,13 @@ int informe_imprimirBicicletas(LinkedList* pArrayBicicletas)
     return ok;
 }
 
+/** \brief Asigna tiempos de manera aleatoria al campo tiempo de cada bicicleta cargada en la lista
+ *
+ * \param pArrayBicicletas LinkedList*
+ * \param aleatorio int
+ * \return int
+ *
+ */
 int informe_asignarTiempos(LinkedList* pArrayBicicletas, int aleatorio)
 {
     int ok=0, size;
@@ -40,6 +53,12 @@ int informe_asignarTiempos(LinkedList* pArrayBicicletas, int aleatorio)
     return ok;
 }
 
+/** \brief filtra las bicicletas por tipo, indica si no hay bicicletas del tipo ingresado
+ *
+ * \param pArrayBicicletas LinkedList*
+ * \return int
+ *
+ */
 int informe_filtrarBicicletasXTipo(LinkedList* pArrayBicicletas)
 {
     int ok=0;
@@ -60,6 +79,10 @@ int informe_filtrarBicicletasXTipo(LinkedList* pArrayBicicletas)
                     informe_guardarBicicletasTexto("filtradas.csv", bicicletasFiltradasXTipo);
                     ok=1;
                 }
+                else
+                {
+                    printf("No hay bicicletas con el tipo indicado\n\n");
+                }
                 free(bicicletasFiltradasXTipo);
             }
         }
@@ -67,6 +90,13 @@ int informe_filtrarBicicletasXTipo(LinkedList* pArrayBicicletas)
     return ok;
 }
 
+/** \brief Sobreescribe un archivo donde guarda las bicicletas, o lo crea si no existe
+ *
+ * \param path char*
+ * \param pArrayBicicletas LinkedList*
+ * \return int
+ *
+ */
 int informe_guardarBicicletasTexto(char* path, LinkedList* pArrayBicicletas)
 {
     int ok=0, size;
@@ -93,6 +123,12 @@ int informe_guardarBicicletasTexto(char* path, LinkedList* pArrayBicicletas)
     return ok;
 }
 
+/** \brief Muestra la lista de bicicletas ordenada por tipo y tiempo
+ *
+ * \param pArrayBicicletas LinkedList*
+ * \return LinkedList*
+ *
+ */
 LinkedList* informe_MostrarPosiciones(LinkedList* pArrayBicicletas)
 {
     LinkedList* bicicletasOrdenadas=NULL;
@@ -109,6 +145,13 @@ LinkedList* informe_MostrarPosiciones(LinkedList* pArrayBicicletas)
     return bicicletasOrdenadas;
 }
 
+/** \brief Guarda un archivo con las bicicletas ordenadas por tipo y tiempo
+ *
+ * \param bicicletasOrdenadas LinkedList*
+ * \param path char*
+ * \return int
+ *
+ */
 int informe_guardarPosiciones(LinkedList* bicicletasOrdenadas, char* path)
 {
     int ok=0;

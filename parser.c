@@ -4,6 +4,13 @@
 #include "bicicletas.h"
 #include "parser.h"
 
+/** \brief Parseador
+ *
+ * \param pFile FILE*
+ * \param pArrayBicicletas LinkedList*
+ * \return int
+ *
+ */
 int parser_BicicletaTexto(FILE* pFile, LinkedList* pArrayBicicletas)
 {
     int ok=-1;

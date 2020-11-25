@@ -1,5 +1,12 @@
 #include "bicicletas.h"
 
+/** \brief Carga un archivo con una lista de bicicletas
+ *
+ * \param path char*
+ * \param pArrayBicicletas LinkedList*
+ * \return int
+ *
+ */
 int cargarArchivoBicicletas(char* path, LinkedList* pArrayBicicletas)
 {
     int ok=0;
@@ -19,6 +26,11 @@ int cargarArchivoBicicletas(char* path, LinkedList* pArrayBicicletas)
     return ok;
 }
 
+/** \brief Crea una bicicleta nueva con los campos vacios
+ *
+ * \return eBicicleta*
+ *
+ */
 eBicicleta* bicicleta_new()
 {
     eBicicleta* newBicicleta=(eBicicleta*) malloc(sizeof(eBicicleta));
@@ -32,6 +44,15 @@ eBicicleta* bicicleta_new()
     return newBicicleta;
 }
 
+/** \brief Crea una bicicleta con parametros
+ *
+ * \param idPilotoStr char*
+ * \param nombreStr char*
+ * \param tipoStr char*
+ * \param tiempoStr char*
+ * \return eBicicleta*
+ *
+ */
 eBicicleta* bicicleta_newParametros(char* idPilotoStr, char* nombreStr, char* tipoStr, char* tiempoStr)
 {
     eBicicleta* newBici=bicicleta_new();
@@ -50,11 +71,23 @@ eBicicleta* bicicleta_newParametros(char* idPilotoStr, char* nombreStr, char* ti
     return newBici;
 }
 
+/** \brief Eliomina de memoria una bicicleta
+ *
+ * \param unaBici eBicicleta*
+ * \return void
+ *
+ */
 void bicicleta_delete(eBicicleta* unaBici)
 {
     free(unaBici);
 }
 
+/** \brief Imprime una bicicleta
+ *
+ * \param unaBici eBicicleta*
+ * \return void
+ *
+ */
 void bicicleta_printOne(eBicicleta* unaBici)
 {
     if(unaBici!=NULL)
@@ -63,6 +96,12 @@ void bicicleta_printOne(eBicicleta* unaBici)
     }
 }
 
+/** \brief Imprime todas las bicicletas de una lista
+ *
+ * \param pArrayBicicletas LinkedList*
+ * \return int
+ *
+ */
 int bicicleta_printAll(LinkedList* pArrayBicicletas)
 {
     int ok=0, f=0;
@@ -92,6 +131,13 @@ int bicicleta_printAll(LinkedList* pArrayBicicletas)
     return ok;
 }
 
+/** \brief Setea el id de unaBici
+ *
+ * \param unaBici eBicicleta*
+ * \param idBici int
+ * \return int
+ *
+ */
 int bicicleta_setId(eBicicleta* unaBici, int idBici)
 {
     int ok=0;
@@ -103,6 +149,13 @@ int bicicleta_setId(eBicicleta* unaBici, int idBici)
     return ok;
 }
 
+/** \brief Asigna a idBici el id de unaBici
+ *
+ * \param unaBici eBicicleta*
+ * \param idBici int*
+ * \return int
+ *
+ */
 int bicicleta_getId(eBicicleta* unaBici, int* idBici)
 {
     int ok=0;
@@ -114,6 +167,13 @@ int bicicleta_getId(eBicicleta* unaBici, int* idBici)
     return ok;
 }
 
+/** \brief Setea el nombre de unaBici
+ *
+ * \param unaBici eBicicleta*
+ * \param nombre char*
+ * \return int
+ *
+ */
 int bicicleta_setNombre(eBicicleta* unaBici, char* nombre)
 {
     int ok=0;
@@ -125,6 +185,13 @@ int bicicleta_setNombre(eBicicleta* unaBici, char* nombre)
     return ok;
 }
 
+/** \brief Asigna a nombre el nombre de unaBici
+ *
+ * \param unaBici eBicicleta*
+ * \param nombre char*
+ * \return int
+ *
+ */
 int bicicleta_getNombre(eBicicleta* unaBici, char* nombre)
 {
     int ok=0;
@@ -136,6 +203,13 @@ int bicicleta_getNombre(eBicicleta* unaBici, char* nombre)
     return ok;
 }
 
+/** \brief Setea el tipo de unaBici
+ *
+ * \param unaBici eBicicleta*
+ * \param tipo char*
+ * \return int
+ *
+ */
 int bicicleta_setTipo(eBicicleta* unaBici, char* tipo)
 {
     int ok=0;
@@ -147,6 +221,13 @@ int bicicleta_setTipo(eBicicleta* unaBici, char* tipo)
     return ok;
 }
 
+/** \brief Asigna a tipo el tipo de unaBici
+ *
+ * \param unaBici eBicicleta*
+ * \param tipo char*
+ * \return int
+ *
+ */
 int bicicleta_getTipo(eBicicleta* unaBici, char* tipo)
 {
     int ok=0;
@@ -158,6 +239,13 @@ int bicicleta_getTipo(eBicicleta* unaBici, char* tipo)
     return ok;
 }
 
+/** \brief Setea el tiempo de unaBici
+ *
+ * \param unaBici eBicicleta*
+ * \param tiempo int
+ * \return int
+ *
+ */
 int bicicleta_setTiempo(eBicicleta* unaBici, int tiempo)
 {
     int ok=0;
@@ -169,6 +257,13 @@ int bicicleta_setTiempo(eBicicleta* unaBici, int tiempo)
     return ok;
 }
 
+/** \brief Asigna a tiempo el tiempo de unaBici
+ *
+ * \param unaBici eBicicleta*
+ * \param tiempo int*
+ * \return int
+ *
+ */
 int bicicleta_getTiempo(eBicicleta* unaBici, int* tiempo)
 {
     int ok=0;
@@ -180,6 +275,13 @@ int bicicleta_getTiempo(eBicicleta* unaBici, int* tiempo)
     return ok;
 }
 
+/** \brief Retorna ok si el tipo de unaBici es igual al tipo pasado por parametro
+ *
+ * \param pElement void*
+ * \param tipo char*
+ * \return int
+ *
+ */
 int bicicleta_filtrarXTipo(void* pElement, char* tipo)
 {
     int ok=0;
@@ -194,6 +296,13 @@ int bicicleta_filtrarXTipo(void* pElement, char* tipo)
     return ok;
 }
 
+/** \brief Compara dos elementos y los ordena por tipo y tiempo
+ *
+ * \param pElementA void*
+ * \param pElementB void*
+ * \return int
+ *
+ */
 int bicicleta_ordenarXTipoYTiempo(void* pElementA, void* pElementB)
 {
     int retorno=0;
