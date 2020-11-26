@@ -26,7 +26,7 @@ int main()
             }
             break;
         case 2:
-                informe_imprimirBicicletas(bicicletas);
+            informe_imprimirBicicletas(bicicletas);
             break;
         case 3:
             informe_asignarTiempos(bicicletas, aleatorio);

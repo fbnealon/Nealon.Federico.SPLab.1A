@@ -37,17 +37,14 @@ int informe_imprimirBicicletas(LinkedList* pArrayBicicletas)
  */
 int informe_asignarTiempos(LinkedList* pArrayBicicletas, int aleatorio)
 {
-    int ok=0, size;
-    //LinkedList* mappedList=NULL;
+    int ok=0;
     if(pArrayBicicletas!=NULL)
     {
-        size=ll_len(pArrayBicicletas);
-        for(int i=0; i<size; i++)
-        {
-            pArrayBicicletas= ll_map(pArrayBicicletas, bicicleta_mapeo);
-            informe_guardarBicicletasTexto("bicicletas.csv", pArrayBicicletas);
-        }
-        printf("Tiempos asignados exitosamente\n\n");
+            ll_map(pArrayBicicletas, bicicleta_mapeo);
+            //informe_imprimirBicicletas(pArrayBicicletas);
+            //informe_guardarBicicletasTexto("bicicletas.csv", pArrayBicicletas);
+            ok=1;
+            printf("Tiempos asignados exitosamente\n\n");
     }
     return ok;
 }
@@ -98,16 +95,15 @@ int informe_filtrarBicicletasXTipo(LinkedList* pArrayBicicletas)
  */
 int informe_guardarBicicletasTexto(char* path, LinkedList* pArrayBicicletas)
 {
-    int ok=0, size;
+    int ok=0;
+    int size;
     FILE* pFile;
     eBicicleta* unaBici;
+
     if(path!=NULL && pArrayBicicletas!=NULL)
     {
         pFile=fopen(path, "w");
-        if(pFile!=NULL)
-        {
-            fprintf(pFile, "ID_BIKE,NOMBRE,TIPO,TIEMPO\n");
-        }
+        fprintf(pFile, "ID_BIKE,NOMBRE,TIPO,TIEMPO\n");
         size=ll_len(pArrayBicicletas);
         for(int i=0; i<size; i++)
         {
@@ -118,9 +114,8 @@ int informe_guardarBicicletasTexto(char* path, LinkedList* pArrayBicicletas)
             }
         }
         ok=1;
-        fclose(pFile);
         free(unaBici);
-        printf("Archivo de bicicletas generado\n\n");
+        fclose(pFile);
     }
     return ok;
 }
